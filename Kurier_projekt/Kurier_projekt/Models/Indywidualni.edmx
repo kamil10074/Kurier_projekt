@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IndywidualniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DaneSet">
+          <Key>
+            <PropertyRef Name="Id_klienta" />
+          </Key>
+          <Property Name="Id_klienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_urodzenia" Type="date" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kod_pocztowy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GabarytySet">
+          <Key>
+            <PropertyRef Name="Gabaryt" />
+          </Key>
+          <Property Name="Gabaryt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Wysokosc" Type="int" Nullable="false" />
+          <Property Name="Dlugosc" Type="int" Nullable="false" />
+          <Property Name="Szerokosc" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZamowieniaSet">
+          <Key>
+            <PropertyRef Name="Id_zamowienia" />
+          </Key>
+          <Property Name="Id_zamowienia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_klienta" Type="int" Nullable="false" />
+          <Property Name="Gabaryt" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ilosc_przesylek" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IndywidualniModelStoreContainer">
+          <EntitySet Name="DaneSet" EntityType="Self.DaneSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GabarytySet" EntityType="Self.GabarytySet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZamowieniaSet" EntityType="Self.ZamowieniaSet" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IndywidualniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DaneSet">
+          <Key>
+            <PropertyRef Name="Id_klienta" />
+          </Key>
+          <Property Name="Id_klienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_urodzenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kod_pocztowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GabarytySet">
+          <Key>
+            <PropertyRef Name="Gabaryt" />
+          </Key>
+          <Property Name="Gabaryt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wysokosc" Type="Int32" Nullable="false" />
+          <Property Name="Dlugosc" Type="Int32" Nullable="false" />
+          <Property Name="Szerokosc" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZamowieniaSet">
+          <Key>
+            <PropertyRef Name="Id_zamowienia" />
+          </Key>
+          <Property Name="Id_zamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_klienta" Type="Int32" Nullable="false" />
+          <Property Name="Gabaryt" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc_przesylek" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IndywidualniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DaneSet" EntityType="Self.DaneSet" />
+          <EntitySet Name="GabarytySet" EntityType="Self.GabarytySet" />
+          <EntitySet Name="ZamowieniaSet" EntityType="Self.ZamowieniaSet" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IndywidualniModelStoreContainer" CdmEntityContainer="IndywidualniEntities">
+          <EntitySetMapping Name="DaneSet">
+            <EntityTypeMapping TypeName="IndywidualniModel.DaneSet">
+              <MappingFragment StoreEntitySet="DaneSet">
+                <ScalarProperty Name="Id_klienta" ColumnName="Id_klienta" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Data_urodzenia" ColumnName="Data_urodzenia" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Kod_pocztowy" ColumnName="Kod_pocztowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GabarytySet">
+            <EntityTypeMapping TypeName="IndywidualniModel.GabarytySet">
+              <MappingFragment StoreEntitySet="GabarytySet">
+                <ScalarProperty Name="Gabaryt" ColumnName="Gabaryt" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Dlugosc" ColumnName="Dlugosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZamowieniaSet">
+            <EntityTypeMapping TypeName="IndywidualniModel.ZamowieniaSet">
+              <MappingFragment StoreEntitySet="ZamowieniaSet">
+                <ScalarProperty Name="Id_zamowienia" ColumnName="Id_zamowienia" />
+                <ScalarProperty Name="Id_klienta" ColumnName="Id_klienta" />
+                <ScalarProperty Name="Gabaryt" ColumnName="Gabaryt" />
+                <ScalarProperty Name="Ilosc_przesylek" ColumnName="Ilosc_przesylek" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
