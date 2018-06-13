@@ -154,29 +154,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DaneSet.cs">
-      <DependentUpon>Indywidualni.tt</DependentUpon>
+    <Compile Include="Models\Kurierzy.cs">
+      <DependentUpon>KurierzyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GabarytySet.cs">
-      <DependentUpon>Indywidualni.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Indywidualni.Context.cs">
+    <Compile Include="Models\KurierzyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Indywidualni.Context.tt</DependentUpon>
+      <DependentUpon>KurierzyModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Indywidualni.cs">
+    <Compile Include="Models\KurierzyModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Indywidualni.tt</DependentUpon>
+      <DependentUpon>KurierzyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Indywidualni.Designer.cs">
+    <Compile Include="Models\KurierzyModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Indywidualni.edmx</DependentUpon>
+      <DependentUpon>KurierzyModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ZamowieniaSet.cs">
-      <DependentUpon>Indywidualni.tt</DependentUpon>
+    <Compile Include="Models\Pojazdy.cs">
+      <DependentUpon>KurierzyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Przesyłki.cs">
+      <DependentUpon>KurierzyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,27 +187,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Indywidualni.Context.tt">
+    <Content Include="Models\KurierzyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Indywidualni.edmx</DependentUpon>
-      <LastGenOutput>Indywidualni.Context.cs</LastGenOutput>
+      <DependentUpon>KurierzyModel.edmx</DependentUpon>
+      <LastGenOutput>KurierzyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Indywidualni.tt">
+    <Content Include="Models\KurierzyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Indywidualni.edmx</DependentUpon>
-      <LastGenOutput>Indywidualni.cs</LastGenOutput>
+      <DependentUpon>KurierzyModel.edmx</DependentUpon>
+      <LastGenOutput>KurierzyModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Indywidualni.edmx">
+    <EntityDeploy Include="Models\KurierzyModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Indywidualni.Designer.cs</LastGenOutput>
+      <LastGenOutput>KurierzyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Indywidualni.edmx.diagram">
-      <DependentUpon>Indywidualni.edmx</DependentUpon>
+    <Content Include="Models\KurierzyModel.edmx.diagram">
+      <DependentUpon>KurierzyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

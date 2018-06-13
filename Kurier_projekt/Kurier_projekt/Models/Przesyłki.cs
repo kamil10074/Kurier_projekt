@@ -12,11 +12,16 @@ namespace Kurier_projekt.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ZamowieniaSet
+    public partial class Przesyłki
     {
-        public int Id_zamowienia { get; set; }
-        public int Id_klienta { get; set; }
-        public string Gabaryt { get; set; }
-        public int Ilosc_przesylek { get; set; }
+        public int Id_Przesylki { get; set; }
+        public string Nadawca { get; set; }
+        public string Odbiorca { get; set; }
+        public System.DateTime Data_nadania { get; set; }
+        public string Adres_nadawcy { get; set; }
+        public string Adres_odbiorcy { get; set; }
+        public int Id_Kurier { get; set; }
+    
+        public virtual Kurierzy Kurierzy { get; set; }
     }
 }

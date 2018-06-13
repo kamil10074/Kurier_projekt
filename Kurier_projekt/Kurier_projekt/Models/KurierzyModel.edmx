@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IndywidualniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kurierzy">
+          <Key>
+            <PropertyRef Name="Id_Kurier" />
+          </Key>
+          <Property Name="Id_Kurier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_urodzenia" Type="date" Nullable="false" />
+          <Property Name="Data_zatrudnienia" Type="date" Nullable="false" />
+          <Property Name="Adres_kurier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Pojazdu" Type="int" Nullable="false" />
+          <Property Name="Numer_telefonu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pojazdy">
+          <Key>
+            <PropertyRef Name="Id_pojazdu" />
+          </Key>
+          <Property Name="Id_pojazdu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marka" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Rok_produkcji" Type="int" Nullable="false" />
+          <Property Name="Numer_rejestracyjny" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Przesyłki">
+          <Key>
+            <PropertyRef Name="Id_Przesylki" />
+          </Key>
+          <Property Name="Id_Przesylki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nadawca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Odbiorca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_nadania" Type="date" Nullable="false" />
+          <Property Name="Adres_nadawcy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres_odbiorcy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Kurier" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Kurierzy_ToTable">
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="1" />
+          <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazdy">
+              <PropertyRef Name="Id_pojazdu" />
+            </Principal>
+            <Dependent Role="Kurierzy">
+              <PropertyRef Name="Id_Pojazdu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przesyłki_ToTable">
+          <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="1" />
+          <End Role="Przesyłki" Type="Self.Przesyłki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurierzy">
+              <PropertyRef Name="Id_Kurier" />
+            </Principal>
+            <Dependent Role="Przesyłki">
+              <PropertyRef Name="Id_Kurier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IndywidualniModelStoreContainer">
+          <EntitySet Name="Kurierzy" EntityType="Self.Kurierzy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pojazdy" EntityType="Self.Pojazdy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Przesyłki" EntityType="Self.Przesyłki" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kurierzy_ToTable" Association="Self.FK_Kurierzy_ToTable">
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+            <End Role="Kurierzy" EntitySet="Kurierzy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przesyłki_ToTable" Association="Self.FK_Przesyłki_ToTable">
+            <End Role="Kurierzy" EntitySet="Kurierzy" />
+            <End Role="Przesyłki" EntitySet="Przesyłki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IndywidualniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kurierzy">
+          <Key>
+            <PropertyRef Name="Id_Kurier" />
+          </Key>
+          <Property Name="Id_Kurier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_urodzenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_zatrudnienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adres_kurier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Pojazdu" Type="Int32" Nullable="false" />
+          <Property Name="Numer_telefonu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pojazdy" Relationship="Self.FK_Kurierzy_ToTable" FromRole="Kurierzy" ToRole="Pojazdy" />
+          <NavigationProperty Name="Przesyłki" Relationship="Self.FK_Przesyłki_ToTable" FromRole="Kurierzy" ToRole="Przesyłki" />
+        </EntityType>
+        <EntityType Name="Pojazdy">
+          <Key>
+            <PropertyRef Name="Id_pojazdu" />
+          </Key>
+          <Property Name="Id_pojazdu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Rok_produkcji" Type="Int32" Nullable="false" />
+          <Property Name="Numer_rejestracyjny" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kurierzy" Relationship="Self.FK_Kurierzy_ToTable" FromRole="Pojazdy" ToRole="Kurierzy" />
+        </EntityType>
+        <EntityType Name="Przesyłki">
+          <Key>
+            <PropertyRef Name="Id_Przesylki" />
+          </Key>
+          <Property Name="Id_Przesylki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nadawca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Odbiorca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_nadania" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adres_nadawcy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres_odbiorcy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Kurier" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kurierzy" Relationship="Self.FK_Przesyłki_ToTable" FromRole="Przesyłki" ToRole="Kurierzy" />
+        </EntityType>
+        <Association Name="FK_Kurierzy_ToTable">
+          <End Role="Pojazdy" Type="Self.Pojazdy" Multiplicity="1" />
+          <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazdy">
+              <PropertyRef Name="Id_pojazdu" />
+            </Principal>
+            <Dependent Role="Kurierzy">
+              <PropertyRef Name="Id_Pojazdu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przesyłki_ToTable">
+          <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="1" />
+          <End Role="Przesyłki" Type="Self.Przesyłki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurierzy">
+              <PropertyRef Name="Id_Kurier" />
+            </Principal>
+            <Dependent Role="Przesyłki">
+              <PropertyRef Name="Id_Kurier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IndywidualniEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kurierzy" EntityType="Self.Kurierzy" />
+          <EntitySet Name="Pojazdy" EntityType="Self.Pojazdy" />
+          <EntitySet Name="Przesyłki" EntityType="Self.Przesyłki" />
+          <AssociationSet Name="FK_Kurierzy_ToTable" Association="Self.FK_Kurierzy_ToTable">
+            <End Role="Pojazdy" EntitySet="Pojazdy" />
+            <End Role="Kurierzy" EntitySet="Kurierzy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przesyłki_ToTable" Association="Self.FK_Przesyłki_ToTable">
+            <End Role="Kurierzy" EntitySet="Kurierzy" />
+            <End Role="Przesyłki" EntitySet="Przesyłki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IndywidualniModelStoreContainer" CdmEntityContainer="IndywidualniEntities1">
+          <EntitySetMapping Name="Kurierzy">
+            <EntityTypeMapping TypeName="IndywidualniModel.Kurierzy">
+              <MappingFragment StoreEntitySet="Kurierzy">
+                <ScalarProperty Name="Id_Kurier" ColumnName="Id_Kurier" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Data_urodzenia" ColumnName="Data_urodzenia" />
+                <ScalarProperty Name="Data_zatrudnienia" ColumnName="Data_zatrudnienia" />
+                <ScalarProperty Name="Adres_kurier" ColumnName="Adres_kurier" />
+                <ScalarProperty Name="Id_Pojazdu" ColumnName="Id_Pojazdu" />
+                <ScalarProperty Name="Numer_telefonu" ColumnName="Numer_telefonu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pojazdy">
+            <EntityTypeMapping TypeName="IndywidualniModel.Pojazdy">
+              <MappingFragment StoreEntitySet="Pojazdy">
+                <ScalarProperty Name="Id_pojazdu" ColumnName="Id_pojazdu" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Rok_produkcji" ColumnName="Rok_produkcji" />
+                <ScalarProperty Name="Numer_rejestracyjny" ColumnName="Numer_rejestracyjny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Przesyłki">
+            <EntityTypeMapping TypeName="IndywidualniModel.Przesyłki">
+              <MappingFragment StoreEntitySet="Przesyłki">
+                <ScalarProperty Name="Id_Przesylki" ColumnName="Id_Przesylki" />
+                <ScalarProperty Name="Nadawca" ColumnName="Nadawca" />
+                <ScalarProperty Name="Odbiorca" ColumnName="Odbiorca" />
+                <ScalarProperty Name="Data_nadania" ColumnName="Data_nadania" />
+                <ScalarProperty Name="Adres_nadawcy" ColumnName="Adres_nadawcy" />
+                <ScalarProperty Name="Adres_odbiorcy" ColumnName="Adres_odbiorcy" />
+                <ScalarProperty Name="Id_Kurier" ColumnName="Id_Kurier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

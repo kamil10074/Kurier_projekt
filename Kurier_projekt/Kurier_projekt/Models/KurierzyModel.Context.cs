@@ -13,10 +13,10 @@ namespace Kurier_projekt.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class IndywidualniEntities : DbContext
+    public partial class IndywidualniEntities1 : DbContext
     {
-        public IndywidualniEntities()
-            : base("name=IndywidualniEntities")
+        public IndywidualniEntities1()
+            : base("name=IndywidualniEntities1")
         {
         }
     
@@ -25,8 +25,8 @@ namespace Kurier_projekt.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DaneSet> DaneSet { get; set; }
-        public virtual DbSet<GabarytySet> GabarytySet { get; set; }
-        public virtual DbSet<ZamowieniaSet> ZamowieniaSet { get; set; }
+        public virtual DbSet<Kurierzy> Kurierzy { get; set; }
+        public virtual DbSet<Pojazdy> Pojazdy { get; set; }
+        public virtual DbSet<Przesyłki> Przesyłki { get; set; }
     }
 }
