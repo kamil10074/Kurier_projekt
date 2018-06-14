@@ -1,0 +1,95 @@
+﻿@{
+
+    var _db = database.open("Indywidualni");
+    var Imie = Request.Form["Imie"];
+    var Nazwisko = Request.Form["Nazwisko"];
+    var Uro = Request.Form["Data_Urodzenia"];
+    var Zat = Request.Form["Data_Zatrudnienia"];
+    var Adr = Request.Form["Adres_kuriera"];
+    var Poj = Request.Form["Id_pojazdu"];
+    var Nr = Request.Form["Numer Telefonu"];
+    var insertQuery = "INSERT INTO dbo.Kurierzy (Imie, Nazwisko, Uro, Zat, Adr, Poj, Nr) ";
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj Kuriera</title>
+    <style type="text/css">
+        label {
+            float: left;
+            width: 8em;
+            text-align: right;
+            margin-right: 0.5em;
+        }
+
+        fieldset {
+            padding: 1em;
+            border: 1px solid;
+            width: 50em;
+        }
+
+        legend {
+            padding: 2px 4px;
+            border: 1px solid;
+            font-weight: bold;
+        }
+
+        .validation-summary-errors {
+            font-weight: bold;
+            color: red;
+            font-size: 11pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dodaj nowego kuriera</h1>
+
+
+    <form method="post" action="">
+        <fieldset>
+            <legend>Dodaj kuriera</legend>
+            <div>
+                <label>Imie:</label>
+                <input name="Imie" type="text" size="50" value="@Imie" />
+            </div>
+            <div>
+                <label>Nazwisko:</label>
+                <input name="Nazwisko" type="text" size="50"
+                       value="@Nazwisko" />
+            </div>
+            <div>
+                <label>Data Urodzenia:</label>
+                <input name="Data Urodzenia" type="text" size="50"
+                       value="@Uro" />
+            </div>
+            <div>
+                <label>Data Zatr: </label>
+                <input name="Data Zatr " type="text" size="50"
+                       value="@Zat" />
+            </div>
+            <div>
+                <label>Adres Kuriera:</label>
+                <input name="Adres Kuriera" type="text" size="50"
+                       value="@Adr" />
+            </div>
+            <div>
+                <label>Id Pojazdu:</label>
+                <input name="Id Pojazdu" type="text" size="50"
+                       value="@Poj" />
+            </div>
+            <div>
+                <label>Numer Telefonu:</label>
+                <input name="Numer Telefonu" type="text" size="50"
+                       value="@Nr" />
+            </div>
+                        <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Insert" class="submit" />
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

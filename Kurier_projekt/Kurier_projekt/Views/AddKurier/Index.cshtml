@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Kurier_projekt.Models.Kurierzy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_zatrudnienia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres_kurier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Pojazdu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numer_telefonu)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Imie)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Data_zatrudnienia)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Adres_kurier)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Id_Pojazdu)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Numer_telefonu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id_Kurier }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id_Kurier }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id_Kurier })
+        </td>
+    </tr>
+    }
+
+</table>
