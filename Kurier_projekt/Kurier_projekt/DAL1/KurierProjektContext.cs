@@ -13,8 +13,6 @@ namespace Kurier_projekt.DAL1
         {
         }
         public DbSet<Kurierzy> Dodajkuriera { get; set; }
-        public DbSet<Pojazdy> Pojazdy { get; set; }
-        public DbSet<Przesyłki> Przesylki { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

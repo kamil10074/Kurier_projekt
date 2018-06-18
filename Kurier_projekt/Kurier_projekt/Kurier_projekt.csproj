@@ -56,6 +56,15 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Pagination, Version=2.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pagination.2.2.0\lib\net45\Pagination.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -150,66 +159,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AddKurierController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KurierzyController.cs" />
     <Compile Include="DAL1\KurierProjektContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kurierzy.cs">
-      <DependentUpon>KurierzyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KurierzyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KurierzyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KurierzyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KurierzyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KurierzyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KurierzyModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pojazdy.cs">
-      <DependentUpon>KurierzyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Przesyłki.cs">
-      <DependentUpon>KurierzyModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Kurierzy.cs" />
+    <Compile Include="Models\Pojazdy.cs" />
+    <Compile Include="Models\Przesyłki.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\KurierzyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KurierzyModel.edmx</DependentUpon>
-      <LastGenOutput>KurierzyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\KurierzyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KurierzyModel.edmx</DependentUpon>
-      <LastGenOutput>KurierzyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\KurierzyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KurierzyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\KurierzyModel.edmx.diagram">
-      <DependentUpon>KurierzyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -236,9 +208,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\AddKurier\Create.cshtml" />
-    <Content Include="Views\AddKurier\Index.cshtml" />
-    <Content Include="Views\AddKurier\Details.cshtml" />
+    <Content Include="Views\Kurierzy\Index.cshtml" />
+    <Content Include="Views\Kurierzy\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
