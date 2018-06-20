@@ -160,14 +160,34 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KurierzyController.cs" />
-    <Compile Include="DAL1\KurierProjektContext.cs" />
+    <Compile Include="Controllers\KurierziesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kurierzy.cs" />
-    <Compile Include="Models\Pojazdy.cs" />
-    <Compile Include="Models\Przesyłki.cs" />
+    <Compile Include="Models\Indywidualni.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Indywidualni.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indywidualni.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Indywidualni.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indywidualni.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Indywidualni.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Kurierzy.cs">
+      <DependentUpon>Indywidualni.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pojazdy.cs">
+      <DependentUpon>Indywidualni.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Przesyłki.cs">
+      <DependentUpon>Indywidualni.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,10 +198,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Indywidualni.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Indywidualni.edmx</DependentUpon>
+      <LastGenOutput>Indywidualni.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Indywidualni.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Indywidualni.edmx</DependentUpon>
+      <LastGenOutput>Indywidualni.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Indywidualni.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Indywidualni.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Indywidualni.edmx.diagram">
+      <DependentUpon>Indywidualni.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -208,8 +245,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Kurierzy\Index.cshtml" />
-    <Content Include="Views\Kurierzy\Create.cshtml" />
+    <Content Include="Views\Kurierzies\Create.cshtml" />
+    <Content Include="Views\Kurierzies\Delete.cshtml" />
+    <Content Include="Views\Kurierzies\Details.cshtml" />
+    <Content Include="Views\Kurierzies\Edit.cshtml" />
+    <Content Include="Views\Kurierzies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

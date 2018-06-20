@@ -1,0 +1,74 @@
+﻿@model Kurier_projekt.Models.Kurierzy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kurierzy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_urodzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_urodzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_zatrudnienia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_zatrudnienia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres_kurier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres_kurier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Pojazdu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Pojazdu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numer_telefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numer_telefonu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Kurier }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
