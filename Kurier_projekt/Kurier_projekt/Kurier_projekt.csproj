@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KurierziesController.cs" />
+    <Compile Include="Controllers\PojazdiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +251,10 @@
     <Content Include="Views\Kurierzies\Details.cshtml" />
     <Content Include="Views\Kurierzies\Edit.cshtml" />
     <Content Include="Views\Kurierzies\Index.cshtml" />
+    <Content Include="Views\Pojazdies\Create.cshtml" />
+    <Content Include="Views\Pojazdies\Delete.cshtml" />
+    <Content Include="Views\Pojazdies\Edit.cshtml" />
+    <Content Include="Views\Pojazdies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
