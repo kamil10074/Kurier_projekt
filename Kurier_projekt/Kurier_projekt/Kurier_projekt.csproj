@@ -249,7 +249,6 @@
     <Content Include="Views\Kurierzies\Create.cshtml" />
     <Content Include="Views\Kurierzies\Delete.cshtml" />
     <Content Include="Views\Kurierzies\Details.cshtml" />
-    <Content Include="Views\Kurierzies\Edit.cshtml" />
     <Content Include="Views\Kurierzies\Index.cshtml" />
     <Content Include="Views\Pojazdies\Create.cshtml" />
     <Content Include="Views\Pojazdies\Delete.cshtml" />

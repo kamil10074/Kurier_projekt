@@ -20,20 +20,6 @@ namespace Kurier_projekt.Controllers
             return View(db.Pojazdy.ToList());
         }
 
-        // GET: Pojazdies/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Pojazdy pojazdy = db.Pojazdy.Find(id);
-            if (pojazdy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pojazdy);
-        }
 
         // GET: Pojazdies/Create
         public ActionResult Create()
