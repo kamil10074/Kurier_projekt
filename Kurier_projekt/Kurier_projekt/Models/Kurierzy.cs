@@ -11,13 +11,19 @@ namespace Kurier_projekt.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Kurierzy
     {
         public int Id_Kurier { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Data_urodzenia { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Data_zatrudnienia { get; set; }
         public string Adres_kurier { get; set; }
         public Nullable<int> Id_Pojazdu { get; set; }

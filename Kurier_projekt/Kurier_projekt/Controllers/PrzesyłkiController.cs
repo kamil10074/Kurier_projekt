@@ -48,11 +48,19 @@ namespace Kurier_projekt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id_Przesylki,Nadawca,Odbiorca,Data_nadania,Adres_nadawcy,Adres_odbiorcy,Id_Kurier")] Przesyłki przesyłki)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Przesyłki.Add(przesyłki);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Przesyłki.Add(przesyłki);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Nie mozna dodac przesylki. Sprawdz poprawnosc wpisanych danych, poniewaz kurier nie istnieje");
             }
 
             return View(przesyłki);

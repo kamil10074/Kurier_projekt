@@ -7,16 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Kurier_projekt.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Przesyłki
     {
         public int Id_Przesylki { get; set; }
         public string Nadawca { get; set; }
         public string Odbiorca { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime Data_nadania { get; set; }
         public string Adres_nadawcy { get; set; }
         public string Adres_odbiorcy { get; set; }
