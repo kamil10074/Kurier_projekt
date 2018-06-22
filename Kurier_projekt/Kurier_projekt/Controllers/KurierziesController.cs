@@ -76,12 +76,25 @@ namespace Kurier_projekt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id_Kurier,Imie,Nazwisko,Data_urodzenia,Data_zatrudnienia,Adres_kurier,Id_Pojazdu,Numer_telefonu")] Kurierzy kurierzy)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Kurierzy.Add(kurierzy);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    db.Kurierzy.Add(kurierzy);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+
             }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Nie mozna dodac pracownika. Sprawdz poprawnosc wpisanych danych " +
+                    "lub upewnij sie ze pojazd ktory przypisujesz do kuriera istnienieje w bazie danych");
+            }
+
 
             return View(kurierzy);
         }
