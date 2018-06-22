@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Kurier_projekt.Models;
+using PagedList;
 
 namespace Kurier_projekt.Controllers
 {
@@ -15,9 +16,36 @@ namespace Kurier_projekt.Controllers
         private IndywidualniEntities db = new IndywidualniEntities();
 
         // GET: Kurierzies
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Kurierzy.ToList());
+
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var kuriers = from s in db.Kurierzy select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                kuriers = kuriers.Where(s => s.Imie.Contains(searchString) ||
+                s.Nazwisko.Contains(searchString));
+            }
+            switch (sortOrder)
+            {default:
+                    kuriers = kuriers.OrderBy(s => s.Imie);
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumer = (page ?? 1);
+            return View(kuriers.ToPagedList(pageNumer, pageSize));
         }
 
         // GET: Kurierzies/Details/5

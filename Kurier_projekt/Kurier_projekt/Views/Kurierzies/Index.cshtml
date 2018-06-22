@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Kurier_projekt.Models.Kurierzy>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -9,6 +10,15 @@
 <p>
     @Html.ActionLink("Dodaj nowego pracownika", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Kurierzies", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -35,35 +45,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nazwisko)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_urodzenia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_zatrudnienia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adres_kurier)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Pojazdu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numer_telefonu)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Kurier }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id_Kurier }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Kurier })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_urodzenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_zatrudnienia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres_kurier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Pojazdu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numer_telefonu)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id_Kurier }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id_Kurier }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id_Kurier })
+            </td>
+        </tr>
+    }
 
 </table>
