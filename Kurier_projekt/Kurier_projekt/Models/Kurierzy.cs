@@ -17,7 +17,9 @@ namespace Kurier_projekt.Models
     public partial class Kurierzy
     {
         public int Id_Kurier { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Imie { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Nazwisko { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -25,6 +27,7 @@ namespace Kurier_projekt.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Data_zatrudnienia { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Adres_kurier { get; set; }
         public Nullable<int> Id_Pojazdu { get; set; }
         public Nullable<int> Numer_telefonu { get; set; }

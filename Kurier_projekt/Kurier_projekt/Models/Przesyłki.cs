@@ -18,12 +18,16 @@ namespace Kurier_projekt.Models
     public partial class Przesyłki
     {
         public int Id_Przesylki { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Nadawca { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Odbiorca { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime Data_nadania { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Adres_nadawcy { get; set; }
+        [StringLength(50, MinimumLength = 1)]
         public string Adres_odbiorcy { get; set; }
         public int Id_Kurier { get; set; }
     }
