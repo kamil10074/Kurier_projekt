@@ -162,6 +162,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KurierziesController.cs" />
     <Compile Include="Controllers\PojazdiesController.cs" />
+    <Compile Include="Controllers\PrzesyłkiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -254,6 +255,10 @@
     <Content Include="Views\Pojazdies\Delete.cshtml" />
     <Content Include="Views\Pojazdies\Edit.cshtml" />
     <Content Include="Views\Pojazdies\Index.cshtml" />
+    <Content Include="Views\Przesyłki\Create.cshtml" />
+    <Content Include="Views\Przesyłki\Delete.cshtml" />
+    <Content Include="Views\Przesyłki\Details.cshtml" />
+    <Content Include="Views\Przesyłki\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
